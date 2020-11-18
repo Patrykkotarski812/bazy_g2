@@ -1,0 +1,59 @@
+uwm-a008-36.uwm.edu.pl
+
+
+16.11.2020 lab04
+ZAD1 
+a) 
+select * from postac where postac='wiking' and nazwa!='Bjorn' order by data_ur;
+delete from postac where postac='wiking' and nazwa!='Bjorn' order by data_ur;
+
+b)
+alter table postac modify id_postaci int;
+alter table postac drop primary key;
+
+ZAD 2
+a)alter table postac ADD COLUMN pesel char(11) primary key;
+
+update postac set pesel='24563254123' + id_postaci;
+alter table postac add primary key(pesel);
+
+b) alter table postac rodzaj enum('wiking','syrena','ptak','kobieta');
+
+c) insert into postac values 
+
+
+update postac set statek='Nemo' where nazwa like '%a%';
+
+
+
+update statek set ladownosc=ladownosc*0.7 where data_wodowania >='1901-01-01' and data_wodowania  <'2001-01-01'; lub  where data_wodowania BETWEEN '1901-01-01' and <'2001-01-01'; 
+
+
+
+18.11.2020
+
+alter table postac add check (wiek <1001);
+
+
+ZAD 4 
+a)  ALTER TABLE postac MODIFY rodzaj enum('wiking','kobieta','ptak','syrena','w¹¿');
+
+
+insert into postac values 
+
+CREATE TABLE marynarz SELECT * FROM postac;
+CREATE TABLE marynarz LIKE postac;
+
+
+ZAD5
+a) update postac set statek='null'
+b) delete from  postac where nazwa like='Ragnar';
+c) detete from statek;
+d) drop table statek;
+e)create table zwierz(id int primary key  auto_increment not null, nazwa varchar(50), wiek INT unsigned);
+f) insert into zwierz select *from postac where rodzaj ='ptak','waz';
+
+
+
+select id_postaci, nazwa, wiek from postac;
+

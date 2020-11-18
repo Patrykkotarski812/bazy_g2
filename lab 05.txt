@@ -1,0 +1,24 @@
+uwm-a008-36.uwm.edu.pl
+
+
+ create table kreatura select *from wikingowie.kreatura;
+
+ create table ekwipunek select *from wikingowie.ekwipunek;
+
+select idZasobu, ilosc from ekwipunek where idKreatury IN (1,3,5);
+
+
+ZAD2	
+1. select * from kreatura where rodzaj !='wiedzma' and udzwig >=50;
+2. select *from zasob where waga between 2 and 5;
+3. select *from kreatura where nazwa like '%or%' and udzwig between 30 and 70;
+
+
+ZAD3
+1.select  *from tabela  where month (data pozyskania) IN ();
+2.select *from zasob where rodzaj IS NOT NULL ORDER BY waga ASC;
+3. select *from kreatura order by dataUr ASC limit 5;
+
+ZAD4
+1.select distinct (rodzaj)from zasob;
+2.select concat(nazwa, " - ", rodzaj) as zlepione from kreatura;
