@@ -1,0 +1,28 @@
+uwm-a008-36.uwm.edu.pl
+
+ZAD1
+1.SELECT AVG(waga) from kreatura where rodzaj='wiking';
+
+//SELECT round (AVG(waga),2) from kreatura where rodzaj='wiking';// zaokr¹glenie //
+
+
+2.SELECT COUNT (*) from kreatura;
+//zwraca nam iloœæ wyst¹pieñ
+SELECT rodzaj, avg(waga) as srednia_waga COUNT(nazwa) from kreatura group by rodzaj;
+
+3. select rodzaj,avg(year(current_timestamp) -year(dataUr)) as 
+'sredni wiek' from kreatura group by rodzaj;
+
+
+ZAD2
+1. select sum(waga) from zasob group by rodzaj;
+2. select rodzaj, avg(waga) from zasob where ilosc 
+>=4 group by rodzaj having avg(waga)>10 ;
+ 
+select nazwa,avg(waga) as 'srednia_waga' from zasob
+group by nazwa having srednia_waga>10 and sum(ilosc) >=4;
+
+3. select rodzaj, count(distinct(nazwa)) from zasob group by rodzaj having sum(ilosc)>1;
+ 
+// lub where ilosc >1;//
+ 
