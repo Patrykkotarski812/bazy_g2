@@ -25,4 +25,64 @@ group by nazwa having srednia_waga>10 and sum(ilosc) >=4;
 3. select rodzaj, count(distinct(nazwa)) from zasob group by rodzaj having sum(ilosc)>1;
  
 // lub where ilosc >1;//
+
+
+ZAD3
+//select k.nazwa, k.idKreatury, e.idZasobu, e.Ilosc from 
+kreatura k, ekwipunek e where k.idKreatury=e.idKreatury;//
+
+//select k.nazwa, k.idKreatury, e.idZasobu, e.Ilosc from 
+kreatura as k INNER JOIN  ekwipunek e ON k.idKreatury=e.idKreatury;//
+
+PUNKT 1
+select k.nazwa,sum(e.ilosc)  from 
+kreatura as k INNER JOIN  ekwipunek e ON k.idKreatury=e.idKreatury group by k.nazwa;
  
+PUNKT 2
+select *from kreatura k, ekwipunek e where k.idKreatury= e.id.Kreatury;
+
+
+PUNKT 3
+SELECT k.nazwa FROM kreatura k
+LEFT JOIN ekwipunek e
+ON k.idKreatury=e.idKreatury
+WHERE e.idKreatury IS NULL;
+
+//podzapytanie
+wyswietl wszystkie idkreatury z tabeli kreatura gdzie to idkreatury nie wystepuje w tabeli ekwipunek;
+
+select idKreatury FROM kreatura WHERE 
+idKreatury NOT IN (select idKreatury FROM ekwipunek WHERE idKreatury IS NOT NULL);
+
+
+ZAD4 
+PUNKT 1
+ select k.nazwa, k.idKreatury,z.nazwa from kreatura k  natural join ekwipunek e inner join zasob z ON e.idZasobu=z.idZasobu WHERE k.dataUR BETWEEN '1670-01-01' AND '1679-12-31' AND k.rodzaj='wiking';
+
+PUNKT 2
+select k.nazwa,k.dataUr from Kreatura as k natural join Ekwipunek e inner join Zasob z on e.idZasobu=z.idZasobu where z.rodzaj='jedzenie' order by k.dataUr desc limit 5;
+
+PUNKT 3
+
+select concat(k1.nazwa,' - ',k2.nazwa) from kreatura k1, kreatura k2 where k1.idKreatury=k2.idKreatury+5;
+
+ZAD 5
+
+Punkt 1 
+select k.rodzaj, avg(e.ilosc*z.waga) as srednia
+from kreatura as k inner join ekwipunek as e
+inner join zasob as z on k.idKreatury=e.idKreatury
+and e.idZasobu=z.idZasobu where k.rodzaj
+NOT IN('malpa', 'waz')
+group by k.rodzaj having sum(e.ilosc)<30;
+
+
+Punkt 2
+//select rodzaj,min (dataUr) from kreatura group by rodzaj;//
+
+
+
+
+
+
+
