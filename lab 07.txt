@@ -1,0 +1,11 @@
+uwm-a008-36.uwm.edu.pl
+
+ZAD1
+
+
+
+create table kreatura2 select * from wikingowie.kreatura;
+create table etapy_wyprawy select * from wikingowie.etapy_wyprawy;
+create table uczestnicy select * from wikingowie.uczestnicy;
+create table wyprawa select * from wikingowie.wyprawa;
+create table sektor select * from wikingowie.sektor;
